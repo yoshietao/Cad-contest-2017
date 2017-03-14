@@ -19,22 +19,15 @@ public:
 	node right_up;
 };
 
-struct routed_shape{
+struct via{
 public:
-	int M_layer;
-	node left_down;
-	node right_up;
+	int layer;
+	node location;
 };
 
-struct routed_via{
+struct block{
 public:
-	int V_layer;
-	node left_down;
-	node right_up;
-};
-
-struct obstacle{
-	int M_layer;
+	int layer;
 	node left_down;
 	node right_up;
 };
@@ -46,18 +39,18 @@ public:
 	int get_spacing();
 	boundary* get_boundary();
 	int get_n_metal_layers();
-	int get_n_Routed_shapes();
+	int get_n_routed_shapes();
 	int get_n_routed_vias();
 	int get_n_obstacles();
-	vector<routed_shape>* get_routed_shape();
-	vector<routed_via>* get_routed_via();
-	vector<obstacle>* get_obstacle();
+	vector<block>* get_routed_shape();
+	vector<via>* get_routed_via();
+	vector<block>* get_obstacle();
 	
 private:
 	int viacost;
 	int spacing;
 	int n_metal_layers;
-	int n_Routed_shapes;
+	int n_routed_shapes;
 	int n_routed_vias;
 	int n_obstacles;
 };
